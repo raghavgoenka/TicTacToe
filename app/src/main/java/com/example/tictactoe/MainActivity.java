@@ -1,13 +1,10 @@
 package com.example.tictactoe;
 
-import androidx.appcompat.app.AlertDialog;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.fragment.app.DialogFragment;
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +12,6 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     GridLayout grid;
@@ -29,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    @SuppressLint("SetTextI18n")
     public void dropIn(View view) {
         turn=(TextView) findViewById(R.id.turn);
         ImageView counter = (ImageView) view;
@@ -72,8 +69,9 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     boolean gameIsover = true;
                     for (int counterState : gamestate) {
-                        if (counterState == 2)
+                        if (counterState == 2) {
                             gameIsover = false;
+                        }
                     }
                     if (gameIsover) {
 
@@ -96,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @SuppressLint("SetTextI18n")
     public void playAgain(View v)
     {
        turn.setText("Yellow's turn Tap to play!");
@@ -103,9 +102,7 @@ public class MainActivity extends AppCompatActivity {
         gameactive=true;
         activep=0;
 
-        for(int i=0;i<gamestate.length;i++){
-            gamestate[i]=2;
-        }
+        for(int i=0;i<gamestate.length;i++) gamestate[i] = 2;
 
         for (int i = 0; i < grid.getChildCount(); i++) {
             ((ImageView) grid.getChildAt(i)).setImageResource(0);
