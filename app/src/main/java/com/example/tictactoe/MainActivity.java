@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity {
     GridLayout grid;
     TextView turn;
@@ -68,11 +70,11 @@ public class MainActivity extends AppCompatActivity {
                     }
                 } else {
                     boolean gameIsover = true;
-                    for (int counterState : gamestate) {
+                    for (int counterState : gamestate)
                         if (counterState == 2) {
                             gameIsover = false;
+                            break;
                         }
-                    }
                     if (gameIsover) {
 
                         TextView winnermessage = (TextView) findViewById(R.id.winner);
@@ -102,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         gameactive=true;
         activep=0;
 
-        for(int i=0;i<gamestate.length;i++) gamestate[i] = 2;
+        Arrays.fill(gamestate, 2);
 
         for (int i = 0; i < grid.getChildCount(); i++) {
             ((ImageView) grid.getChildAt(i)).setImageResource(0);
