@@ -1,9 +1,6 @@
 package com.example.tictactoe;
-
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
